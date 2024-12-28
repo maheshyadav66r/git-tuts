@@ -1,0 +1,18 @@
+"scripts": {
+    "dependencies": "node scripts/bundle-and-gitignore-deps.js && node scripts/dependency-graph.js",
+    "dumpconf": "env | grep npm | sort | uniq",
+    "licenses": "npx licensee --production --errors-only",
+    "test": "tap",
+    "test:nocolor": "CI=true tap -Rclassic",
+    "test-all": "node . run test -ws -iwr --if-present",
+    "snap": "tap",
+    "prepack": "node . run build -w docs",
+    "posttest": "node . run lint",
+    "lint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\"",
+    "lintfix": "node . run lint -- --fix",
+    "lint-all": "node . run lint -ws -iwr --if-present",
+    "resetdeps": "node scripts/resetdeps.js",
+    "rp-pull-request": "node scripts/update-authors.js",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force"
+  }
